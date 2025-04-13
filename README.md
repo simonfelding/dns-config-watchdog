@@ -20,3 +20,14 @@ This method was chosen so we can use regex to make the zone files vs trying to m
 
 ## Example
 - For the DNS server I host I used to use a cron job to run `python3 /opt/dns-config-watchdog/main.py --remote https://raw.githubusercontent.com/Al-Azif/dns-config-watchdog/master/zones.json` every day at 00:00 server time.
+
+
+## Example that uses static output and CoreDNS
+```bash
+git clone --single-branch -b static https://github.com/simonfelding/coredns
+cd coredns
+```
+
+Then run CoreDNS with the included Corefile.
+
+`docker run --rm -it -v ./Corefile:/Corefile coredns/coredns`

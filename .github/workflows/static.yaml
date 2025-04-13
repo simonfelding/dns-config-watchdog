@@ -27,9 +27,9 @@ jobs:
             - name: Commit and push changes
               run: |
                     git checkout -B static
-                    mv zones /tmp/zones
+                    mv zones Corefile /tmp/
                     rm -rf * .github
-                    mv /tmp/zones/* .
+                    mv /tmp/zones /tmp/Corefile .
                     git add -A
                     git commit -m "Update static branch with latest data"
                     git push origin static --force

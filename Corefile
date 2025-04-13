@@ -1,0 +1,8 @@
+. {
+    auto {
+        directory /zones
+    }
+    log
+    errors
+    reload
+}
