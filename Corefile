@@ -1,10 +1,9 @@
 . {
     auto {
-        directory /zones
+        directory /dns/zones
     }
+    forward . /etc/resolv.conf
     log
     errors
     reload
 }
-
-
