@@ -1,0 +1,16 @@
+$TTL 3600
+;; SOA Record
+@ IN SOA ns.the.gate root.the.gate. 20200103 7200 3600 86400 3600
+
+;; NS Records
+@ IN NS ns.the.gate.
+
+;; A Records
+@ IN A 10.1.0.114
+ns IN A 10.1.0.114
+* IN A 0.0.0.0
+
+;; AAAA Records
+@ IN AAAA ::
+ns IN AAAA ::
+* IN AAAA ::
