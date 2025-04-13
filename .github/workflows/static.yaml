@@ -28,7 +28,7 @@ jobs:
               run: |
                     git checkout -B static
                     mv zones /tmp/zones
-                    rm -rf *
+                    rm -rf * .*
                     mv /tmp/zones/* .
                     git add -A
                     git commit -m "Update static branch with latest data"
