@@ -30,7 +30,7 @@ sudo git clone --single-branch -b static https://github.com/simonfelding/dns-con
 Then run CoreDNS with the included Corefile.
 You can either download the binary or run it with docker:
 
-`sudo docker run --rm -p 53:53 -v /dns/Corefile:/Corefile -v /dns/zones:/zones coredns/coredns`
+`sudo docker run --rm -p 53:53 -v /dns/Corefile:/Corefile -v /dns/zones:/dns/zones coredns/coredns`
 
 Add this to /etc/crontab to auto-update every day
 `0 0 * * * root git pull /dns`
