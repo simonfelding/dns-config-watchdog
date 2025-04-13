@@ -30,4 +30,4 @@ cd coredns
 
 Then run CoreDNS with the included Corefile.
 
-`docker run --rm -it -v ./Corefile:/Corefile coredns/coredns`
+`docker run --rm -it -v ./Corefile:/Corefile -v ./zones:/zones coredns/coredns`
