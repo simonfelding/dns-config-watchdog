@@ -1,0 +1,35 @@
+name: Static Branch Update
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    update_static_branch:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - name: Set up Python
+              uses: actions/setup-python@v3
+              with:
+                python-version: '3.11'
+            - name: Install dependencies
+              run: |
+                    python -m pip install --upgrade pip
+                    pip install -r requirements.txt
+            - name: Execute Python script
+              run: DNS_RESTART=/bin/true python3 main.py --cwd
+            - name: Configure Git
+              run: |
+                    git config --local user.email "actions@github.com"
+                    git config --local user.name "GitHub Actions"
+            - name: Commit and push changes
+              run: |
+                    git checkout -B static
+                    mv zones /tmp/zones
+                    rm -rf *
+                    mv /tmp/zones/* .
+                    git add -A
+                    git commit -m "Update static branch with latest data"
+                    git push origin static --force
