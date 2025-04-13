@@ -24,7 +24,7 @@ This method was chosen so we can use regex to make the zone files vs trying to m
 
 ## Example that uses static output and CoreDNS
 ```bash
-git clone --single-branch -b static https://github.com/simonfelding/coredns
+git clone --single-branch -b static https://github.com/simonfelding/dns-config-watchdog
 cd coredns
 ```
 
