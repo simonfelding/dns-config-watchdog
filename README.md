@@ -24,10 +24,13 @@ This method was chosen so we can use regex to make the zone files vs trying to m
 
 ## Example that uses static output and CoreDNS
 ```bash
-git clone --single-branch -b static https://github.com/simonfelding/dns-config-watchdog
-cd coredns
+sudo git clone --single-branch -b static https://github.com/simonfelding/dns-config-watchdog /dns
 ```
 
 Then run CoreDNS with the included Corefile.
+You can either download the binary or run it with docker:
 
-`docker run --rm -it -v ./Corefile:/Corefile -v ./zones:/zones coredns/coredns`
+`docker run --rm -it -v /dns/Corefile:/Corefile -v /dns/zones:/zones coredns/coredns`
+
+Add this to /etc/crontab to auto-update every day
+`0 0 * * * root git pull /dns`
