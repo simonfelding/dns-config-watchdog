@@ -33,4 +33,4 @@ You can either download the binary or run it with docker:
 `sudo docker run --rm -p 53:53 -v /dns/Corefile:/Corefile -v /dns/zones:/dns/zones coredns/coredns`
 
 Add this to /etc/crontab to auto-update every day
-`0 0 * * * root git pull /dns`
+`0 0 * * * root git pull --rebase /dns`
